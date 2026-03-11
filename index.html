@@ -2087,6 +2087,16 @@
         t.classList.toggle('active', t.getAttribute('href') === '#' + current);
       });
     });
+
+    // Get the element by its class
+    const footerSpan = document.querySelector('.footer-copy');
+
+    // Extract the current year
+    const currentYear = new Date().getFullYear();
+
+    // Replace the year in the text (assumes the year is the first 4-digit number)
+    footerSpan.innerHTML = footerSpan.innerHTML.replace('2024', currentYear);
+
   </script>
 </body>
 
