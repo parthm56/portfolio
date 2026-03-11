@@ -1,0 +1,2093 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parth Mithapara — Developer Profile</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    /* Google Sans isn't on fonts.google.com publicly, so we use Product Sans fallback */
+    @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+    :root {
+      --bg: #f8f9fa;
+      --surface: #ffffff;
+      --surface2: #f1f3f4;
+      --primary: #01875f;
+      /* Play Store green */
+      --primary2: #0060a9;
+      /* App Store blue */
+      --blue: #1a73e8;
+      --text: #202124;
+      --text2: #5f6368;
+      --text3: #80868b;
+      --border: #e8eaed;
+      --star: #f5a623;
+      --red: #ea4335;
+      --green: #34a853;
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+      --shadow2: 0 4px 16px rgba(0, 0, 0, 0.1);
+      --shadow3: 0 8px 32px rgba(0, 0, 0, 0.12);
+      --radius: 12px;
+      --radius2: 8px;
+      --font: 'Nunito Sans', 'Roboto', system-ui, sans-serif;
+      --font2: 'Inter', system-ui, sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 14px;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #bdc1c6;
+    }
+
+    /* ── TOP SEARCH BAR (like Play Store) ── */
+    .store-topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .topbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #01875f, #34a853);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      font-family: var(--font);
+    }
+
+    .logo-text {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.3px;
+    }
+
+    .logo-text span {
+      color: var(--primary);
+    }
+
+    .search-bar {
+      flex: 1;
+      max-width: 600px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: box-shadow .2s, background .2s;
+    }
+
+    .search-bar:focus-within {
+      background: var(--surface);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .search-icon {
+      color: var(--text3);
+      flex-shrink: 0;
+    }
+
+    .search-input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-family: var(--font);
+      font-size: 14px;
+      color: var(--text);
+      outline: none;
+    }
+
+    .search-input::placeholder {
+      color: var(--text3);
+    }
+
+    .topbar-nav {
+      display: flex;
+      gap: 4px;
+      margin-left: auto;
+    }
+
+    .topbar-nav a {
+      font-family: var(--font2);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text2);
+      text-decoration: none;
+      padding: 7px 14px;
+      border-radius: 20px;
+      transition: background .15s, color .15s;
+    }
+
+    .topbar-nav a:hover {
+      background: var(--surface2);
+      color: var(--text);
+    }
+
+    .topbar-nav a.active {
+      color: var(--primary);
+      background: rgba(1, 135, 95, 0.08);
+    }
+
+    .hire-btn {
+      background: var(--primary);
+      color: #fff;
+      font-family: var(--font2);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 20px;
+      transition: background .15s, box-shadow .15s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .hire-btn:hover {
+      background: #016b4b;
+      box-shadow: 0 2px 8px rgba(1, 135, 95, 0.35);
+    }
+
+    /* ── CATEGORY TABS ── */
+    .cat-tabs {
+      position: fixed;
+      top: 57px;
+      left: 0;
+      right: 0;
+      z-index: 199;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .cat-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cat-tab {
+      font-family: var(--font2);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text2);
+      text-decoration: none;
+      padding: 12px 16px;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color .2s, border-color .2s;
+    }
+
+    .cat-tab:hover {
+      color: var(--text);
+    }
+
+    .cat-tab.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    /* ── MAIN LAYOUT ── */
+    .main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 120px 24px 60px;
+    }
+
+    /* ── DEVELOPER HERO (like app detail page header) ── */
+    .dev-hero {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .dev-hero-banner {
+      height: 140px;
+      background: linear-gradient(135deg, #01875f 0%, #34a853 40%, #0060a9 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dev-hero-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .dev-hero-banner .banner-text {
+      position: absolute;
+      right: 32px;
+      bottom: 20px;
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .dev-hero-body {
+      padding: 0 28px 24px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 20px;
+      align-items: flex-end;
+    }
+
+    .dev-avatar-wrap {
+      margin-top: -40px;
+      position: relative;
+    }
+
+    .dev-avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #1a73e8, #0060a9);
+      border: 4px solid var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font);
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      box-shadow: var(--shadow2);
+    }
+
+    .verified-badge {
+      position: absolute;
+      bottom: -4px;
+      right: -4px;
+      width: 22px;
+      height: 22px;
+      background: var(--primary);
+      border-radius: 50%;
+      border: 2px solid var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .verified-badge svg {
+      width: 11px;
+      height: 11px;
+      fill: #fff;
+    }
+
+    .dev-info {
+      padding-top: 12px;
+    }
+
+    .dev-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.4px;
+      margin-bottom: 2px;
+    }
+
+    .dev-handle {
+      font-family: var(--font2);
+      font-size: 13px;
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .dev-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .dev-tag {
+      font-family: var(--font2);
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--surface2);
+      color: var(--text2);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 3px 10px;
+    }
+
+    .dev-actions {
+      padding-top: 12px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn-install {
+      background: var(--primary);
+      color: #fff;
+      font-family: var(--font2);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 10px 28px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      transition: all .2s;
+      box-shadow: 0 2px 8px rgba(1, 135, 95, 0.3);
+    }
+
+    .btn-install:hover {
+      background: #016b4b;
+      box-shadow: 0 4px 16px rgba(1, 135, 95, 0.4);
+    }
+
+    .btn-share {
+      background: transparent;
+      color: var(--primary);
+      font-family: var(--font2);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 9px 20px;
+      border-radius: 20px;
+      border: 1.5px solid var(--primary);
+      transition: all .2s;
+    }
+
+    .btn-share:hover {
+      background: rgba(1, 135, 95, 0.06);
+    }
+
+    /* ── STATS ROW ── */
+    .stats-row {
+      display: flex;
+      gap: 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-cell {
+      flex: 1;
+      padding: 14px 16px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+      transition: background .15s;
+    }
+
+    .stat-cell:hover {
+      background: var(--bg);
+    }
+
+    .stat-cell:last-child {
+      border-right: none;
+    }
+
+    .stat-num {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    .stat-num .star-icon {
+      color: var(--star);
+      font-size: 14px;
+    }
+
+    .stat-sub {
+      font-family: var(--font2);
+      font-size: 11px;
+      color: var(--text3);
+    }
+
+    /* ── SECTION CARDS ── */
+    .store-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .card-header {
+      padding: 18px 20px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-title-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .icon-about {
+      background: #e8f5e9;
+    }
+
+    .icon-exp {
+      background: #e3f2fd;
+    }
+
+    .icon-apps {
+      background: #fce4ec;
+    }
+
+    .icon-skills {
+      background: #fff8e1;
+    }
+
+    .see-all {
+      font-family: var(--font2);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: 6px;
+      transition: background .15s;
+    }
+
+    .see-all:hover {
+      background: rgba(1, 135, 95, 0.08);
+    }
+
+    /* ── ABOUT SECTION ── */
+    .about-content {
+      padding: 16px 20px;
+    }
+
+    .about-text {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text2);
+      margin-bottom: 14px;
+    }
+
+    .about-text strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .about-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .about-chip {
+      font-family: var(--font2);
+      font-size: 12px;
+      font-weight: 600;
+      background: #e8f5e9;
+      color: #1b5e20;
+      border-radius: 100px;
+      padding: 4px 12px;
+    }
+
+    .about-chip.blue {
+      background: #e3f2fd;
+      color: #0d47a1;
+    }
+
+    .about-chip.orange {
+      background: #fff3e0;
+      color: #e65100;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .info-item {
+      background: var(--bg);
+      border-radius: var(--radius2);
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+    }
+
+    .info-label {
+      font-family: var(--font2);
+      font-size: 11px;
+      color: var(--text3);
+      margin-bottom: 3px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .info-value {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .info-value.green {
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .avail-pip {
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse-pip 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-pip {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: .4;
+      }
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-list {
+      padding: 0;
+    }
+
+    .exp-item {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      transition: background .15s;
+    }
+
+    .exp-item:hover {
+      background: var(--bg);
+    }
+
+    .exp-item:last-child {
+      border-bottom: none;
+    }
+
+    .exp-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+
+    .exp-icon-ot {
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    }
+
+    .exp-icon-ut {
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    }
+
+    .exp-body {
+      flex: 1;
+    }
+
+    .exp-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1px;
+    }
+
+    .exp-company {
+      font-family: var(--font2);
+      font-size: 12px;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .exp-period {
+      display: inline-block;
+      font-family: var(--font2);
+      font-size: 11px;
+      color: var(--text3);
+      background: var(--surface2);
+      border-radius: 100px;
+      padding: 2px 8px;
+      margin-bottom: 8px;
+    }
+
+    .exp-bullets {
+      list-style: none;
+    }
+
+    .exp-bullets li {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.55;
+      padding: 3px 0 3px 16px;
+      position: relative;
+    }
+
+    .exp-bullets li::before {
+      content: '•';
+      position: absolute;
+      left: 5px;
+      color: var(--primary);
+      font-size: 10px;
+      top: 5px;
+    }
+
+    .exp-bullets li strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .exp-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 8px;
+    }
+
+    .exp-chip {
+      font-family: var(--font2);
+      font-size: 10px;
+      font-weight: 600;
+      background: var(--surface2);
+      color: var(--text2);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 2px 8px;
+    }
+
+    /* ── PROJECTS SUB LIST ── */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .proj-mini {
+      background: var(--bg);
+      border-radius: var(--radius2);
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      transition: box-shadow .15s;
+    }
+
+    .proj-mini:hover {
+      box-shadow: var(--shadow);
+    }
+
+    .proj-mini-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .proj-mini-desc {
+      font-size: 11px;
+      color: var(--text3);
+      line-height: 1.4;
+    }
+
+    /* ── LIVE APPS (like Play Store listing) ── */
+    .apps-list {
+      padding: 0;
+    }
+
+    .app-listing {
+      border-bottom: 1px solid var(--border);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .5s ease, transform .5s ease, background .15s;
+    }
+
+    .app-listing:hover {
+      background: var(--bg);
+    }
+
+    .app-listing:last-child {
+      border-bottom: none;
+    }
+
+    .app-listing.vis {
+      opacity: 1;
+      transform: none;
+    }
+
+    .app-listing-top {
+      padding: 16px 20px 12px;
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .app-listing-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .app-listing-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1px;
+      line-height: 1.3;
+    }
+
+    .app-listing-dev {
+      font-family: var(--font2);
+      font-size: 12px;
+      color: var(--text3);
+      margin-bottom: 5px;
+    }
+
+    .app-listing-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .app-rating {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      font-family: var(--font2);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text2);
+    }
+
+    .stars {
+      display: flex;
+      gap: 1px;
+    }
+
+    .star {
+      font-size: 11px;
+    }
+
+    .star.full {
+      color: var(--star);
+    }
+
+    .star.half {
+      color: var(--star);
+    }
+
+    .star.empty {
+      color: var(--border);
+    }
+
+    .app-listing-badge {
+      font-family: var(--font2);
+      font-size: 10px;
+      font-weight: 600;
+      background: var(--surface2);
+      color: var(--text3);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 2px 8px;
+    }
+
+    .app-listing-badge.rated {
+      background: #e8f5e9;
+      color: #2e7d32;
+      border-color: #a5d6a7;
+    }
+
+    .app-action {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .app-install-btn {
+      background: transparent;
+      color: var(--primary);
+      font-family: var(--font2);
+      font-size: 12px;
+      font-weight: 700;
+      border: 1.5px solid var(--primary);
+      border-radius: 20px;
+      padding: 7px 18px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all .2s;
+    }
+
+    .app-install-btn:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .app-install-btn.ios {
+      color: var(--primary2);
+      border-color: var(--primary2);
+    }
+
+    .app-install-btn.ios:hover {
+      background: var(--primary2);
+      color: #fff;
+    }
+
+    .app-size {
+      font-family: var(--font2);
+      font-size: 10px;
+      color: var(--text3);
+    }
+
+    /* Screenshots */
+    .app-screenshots-row {
+      padding: 0 20px 16px;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+    }
+
+    .app-screenshots-row::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .app-screenshots-row::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 2px;
+    }
+
+    .ss-frame {
+      flex-shrink: 0;
+      width: 96px;
+      height: 200px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1.5px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .ss-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s ease;
+    }
+
+    .ss-frame:hover img {
+      transform: scale(1.04);
+    }
+
+    /* App footer info */
+    .app-listing-footer {
+      padding: 0 20px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .app-desc-short {
+      font-size: 12px;
+      color: var(--text3);
+      line-height: 1.5;
+      flex: 1;
+      max-width: 520px;
+    }
+
+    .app-tech-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .tech-badge {
+      font-family: var(--font2);
+      font-size: 10px;
+      font-weight: 600;
+      background: #e8f0fe;
+      color: #1a73e8;
+      border-radius: 100px;
+      padding: 2px 8px;
+    }
+
+    /* ── SKILLS (like Play Store categories) ── */
+    .skills-section {
+      padding: 16px 20px;
+    }
+
+    .skill-category {
+      margin-bottom: 20px;
+    }
+
+    .skill-cat-label {
+      font-family: var(--font2);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text3);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-cat-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .skill-pills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .skill-pill {
+      font-family: var(--font2);
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 100px;
+      padding: 5px 13px;
+      border: 1.5px solid var(--border);
+      color: var(--text2);
+      background: var(--surface2);
+      transition: all .15s;
+    }
+
+    .skill-pill:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: rgba(1, 135, 95, 0.06);
+    }
+
+    .skill-pill.featured {
+      background: #e8f5e9;
+      color: #1b5e20;
+      border-color: #a5d6a7;
+    }
+
+    .skill-pill.blue {
+      background: #e8f0fe;
+      color: #1a73e8;
+      border-color: #aecbfa;
+    }
+
+    .skill-pill.orange {
+      background: #fff3e0;
+      color: #e65100;
+      border-color: #ffcc80;
+    }
+
+    /* ── RATING BAR WIDGET ── */
+    .rating-widget {
+      padding: 16px 20px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 20px;
+      align-items: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .big-rating {
+      text-align: center;
+    }
+
+    .big-num {
+      font-size: 52px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .big-stars {
+      display: flex;
+      justify-content: center;
+      gap: 2px;
+      margin: 4px 0;
+    }
+
+    .big-star {
+      font-size: 16px;
+      color: var(--star);
+    }
+
+    .big-count {
+      font-family: var(--font2);
+      font-size: 11px;
+      color: var(--text3);
+    }
+
+    .rating-bars {}
+
+    .rating-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .rbar-label {
+      font-family: var(--font2);
+      font-size: 11px;
+      color: var(--text3);
+      width: 8px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .rbar-track {
+      flex: 1;
+      height: 6px;
+      background: var(--surface2);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .rbar-fill {
+      height: 100%;
+      background: var(--primary);
+      border-radius: 3px;
+      transition: width 1s ease;
+    }
+
+    .rbar-pct {
+      font-family: var(--font2);
+      font-size: 10px;
+      color: var(--text3);
+      width: 28px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* ── CONTACT CARD ── */
+    .contact-card {
+      background: linear-gradient(135deg, #01875f 0%, #34a853 50%, #1a73e8 100%);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 50%;
+    }
+
+    .contact-card::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      left: -40px;
+      width: 140px;
+      height: 140px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+    }
+
+    .contact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 100px;
+      padding: 4px 12px;
+      margin-bottom: 14px;
+      font-family: var(--font2);
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      letter-spacing: .04em;
+    }
+
+    .contact-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.4px;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-sub {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 380px;
+      margin: 0 auto 22px;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-btns {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-white {
+      background: #fff;
+      color: var(--primary);
+      font-family: var(--font2);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 10px 24px;
+      border-radius: 20px;
+      transition: all .2s;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-white:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-white-outline {
+      background: transparent;
+      color: #fff;
+      font-family: var(--font2);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 9px 24px;
+      border-radius: 20px;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      transition: all .2s;
+    }
+
+    .btn-white-outline:hover {
+      border-color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .footer-logo-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #01875f, #34a853);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .footer-logo-text {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .footer-copy {
+      font-family: var(--font2);
+      font-size: 11px;
+      color: var(--text3);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    .footer-links a {
+      font-family: var(--font2);
+      font-size: 11px;
+      color: var(--text3);
+      text-decoration: none;
+      transition: color .15s;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    /* ── ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.vis {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .topbar-nav {
+        display: none;
+      }
+
+      .hire-btn {
+        display: none;
+      }
+
+      .dev-hero-body {
+        grid-template-columns: auto 1fr;
+      }
+
+      .dev-actions {
+        display: none;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .exp-item {
+        flex-direction: column;
+      }
+
+      .app-listing-top {
+        grid-template-columns: 52px 1fr;
+      }
+
+      .app-action {
+        display: none;
+      }
+
+      .proj-grid {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="store-topbar">
+    <a class="topbar-logo" href="#">
+      <div class="logo-icon">P</div>
+      <span class="logo-text">PartHub<span>Store</span></span>
+    </a>
+    <!--<div class="search-bar">
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2">
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.35-4.35" />
+      </svg>
+      <input class="search-input" placeholder="Search Parth's portfolio..." readonly>
+    </div>-->
+    <nav class="topbar-nav">
+      <a href="#about" class="cat-tab active">About</a>
+      <a href="#experience" class="cat-tab">Experience</a>
+      <a href="#apps" class="cat-tab">Apps</a>
+      <a href="#skills" class="cat-tab">Skills</a>
+    </nav>
+    <a class="hire-btn" href="mailto:parthm.works@gmail.com">Contact →</a>
+  </div>
+
+  <!-- CATEGORY TABS -->
+  <div class="cat-tabs">
+    <a href="#about" class="cat-tab active">Overview</a>
+    <a href="#experience" class="cat-tab">Experience</a>
+    <a href="#apps" class="cat-tab">Apps (5)</a>
+    <a href="#skills" class="cat-tab">Skills</a>
+    <a href="mailto:parthm.works@gmail.com" class="cat-tab">Contact</a>
+  </div>
+
+  <div class="main">
+
+    <!-- DEV HERO -->
+    <div class="dev-hero">
+      <div class="dev-hero-banner">
+        <span class="banner-text">Backend Engineer · Surat, India</span>
+      </div>
+      <div class="dev-hero-body">
+        <div class="dev-avatar-wrap">
+          <div class="dev-avatar">PM</div>
+          <div class="verified-badge">
+            <svg viewBox="0 0 24 24">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+            </svg>
+          </div>
+        </div>
+        <div class="dev-info">
+          <div class="dev-name">Parth Mithapara</div>
+          <div class="dev-handle">@parthmithapara · Backend Engineer</div>
+          <div class="dev-tags">
+            <span class="dev-tag">Laravel</span>
+            <span class="dev-tag">Node.js</span>
+            <span class="dev-tag">OpenAI</span>
+            <span class="dev-tag">Pinecone</span>
+            <span class="dev-tag">CUDA</span>
+            <span class="dev-tag">3+ yrs</span>
+          </div>
+        </div>
+        <div class="dev-actions">
+          <a class="btn-install" href="mailto:parthm.works@gmail.com">Hire Now</a>
+          <a class="btn-share" href="tel:+919426874801">Call</a>
+        </div>
+      </div>
+      <div class="stats-row">
+        <div class="stat-cell">
+          <div class="stat-num">4.8 <span class="star-icon">★</span></div>
+          <div class="stat-sub">Dev Rating</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">3+</div>
+          <div class="stat-sub">Years Exp.</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">5</div>
+          <div class="stat-sub">Live Apps</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">10M+</div>
+          <div class="stat-sub">Total Downloads</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">6</div>
+          <div class="stat-sub">Projects Shipped</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="store-card reveal" id="about">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="card-title-icon icon-about">👤</div>
+          About this Developer
+        </div>
+      </div>
+      <div class="about-content">
+        <p class="about-text">
+          I build the backend infrastructure for apps <strong>millions of people use every day</strong>. Specialising in
+          AI-powered pipelines, subscription systems, and semantic search — I've shipped production systems that have
+          collectively reached over <strong>10M+ downloads</strong> on the Play Store.
+        </p>
+        <p class="about-text">
+          Currently at <strong>Optimumbrew Technology LLP</strong> — building backends for 5 live apps including a
+          <strong>CUDA-accelerated AI video generation pipeline</strong>, OpenAI & Gemini integrations, and Pinecone
+          vector search. Previously at <strong>Unitech IT Solution</strong> where I shipped 6 complete products across
+          multiple industries.
+        </p>
+        <div class="about-chips">
+          <span class="about-chip">✅ Available for hire</span>
+          <span class="about-chip blue">🏙 Surat, India</span>
+          <span class="about-chip orange">🎓 BCA — SDJ Intl. College</span>
+        </div>
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-label">Primary Stack</div>
+            <div class="info-value">Laravel · Node.js · PHP</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">AI Tools</div>
+            <div class="info-value">OpenAI · Gemini · Pinecone</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Phone</div>
+            <div class="info-value">+91 9426874801</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Status</div>
+            <div class="info-value green">
+              <div class="avail-pip"></div>Open to work
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Email</div>
+            <div class="info-value" style="font-size:12px;">parthm.works@gmail.com</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Experience</div>
+            <div class="info-value">3+ Years</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="store-card reveal" id="experience">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="card-title-icon icon-exp">💼</div>Work Experience
+        </div>
+      </div>
+      <div class="exp-list">
+
+        <div class="exp-item">
+          <div class="exp-icon exp-icon-ot">🚀</div>
+          <div class="exp-body">
+            <div class="exp-title">Backend Developer</div>
+            <div class="exp-company">Optimumbrew Technology LLP</div>
+            <span class="exp-period">Jun 2023 — Present · Surat, India</span>
+            <ul class="exp-bullets">
+              <li>Develop & maintain backends for <strong>5 live Play Store apps</strong> — FlyerWiz, PlanWiz, Lisi,
+                Brochure Maker & Poster Maker.</li>
+              <li>Built <strong>AI Video Generation pipeline</strong> using Laravel + Python + CUDA GPU workers; 30–40s
+                flyer-to-video output.</li>
+              <li>Integrated <strong>OpenAI & Gemini APIs</strong> with async Python workers for AI-powered flyer
+                generation.</li>
+              <li>Implemented <strong>semantic search</strong> with OpenAI embeddings + Pinecone vector DB, hybrid RRF
+                keyword ranking.</li>
+              <li>Engineered secure <strong>server-side IAP validation</strong> and subscription-based feature gating
+                for Play Store.</li>
+            </ul>
+            <div class="exp-chip-row">
+              <span class="exp-chip">Laravel</span><span class="exp-chip">Python</span><span
+                class="exp-chip">CUDA</span>
+              <span class="exp-chip">OpenAI</span><span class="exp-chip">Gemini</span><span
+                class="exp-chip">Pinecone</span>
+              <span class="exp-chip">React.js</span><span class="exp-chip">MySQL</span><span
+                class="exp-chip">Node.js</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-icon exp-icon-ut">⚡</div>
+          <div class="exp-body">
+            <div class="exp-title">Laravel Developer</div>
+            <div class="exp-company">Unitech IT Solution</div>
+            <span class="exp-period">Apr 2022 — Jun 2023 · Surat, India</span>
+            <ul class="exp-bullets">
+              <li>Built Laravel-based web apps for client projects across multiple industries.</li>
+              <li>Developed RESTful APIs and collaborated closely with React.js frontend developers.</li>
+              <li>Optimised database queries and backend performance in existing production systems.</li>
+              <li>Delivered <strong>6 complete products</strong> from zero — EV platforms to government systems.</li>
+            </ul>
+            <div class="exp-chip-row">
+              <span class="exp-chip">Laravel</span><span class="exp-chip">PHP</span>
+              <span class="exp-chip">Node.js</span><span class="exp-chip">React.js</span>
+              <span class="exp-chip">MySQL</span><span class="exp-chip">REST API</span>
+            </div>
+            <div class="proj-grid">
+              <div class="proj-mini">
+                <div class="proj-mini-name">🚗 Ghe EV</div>
+                <div class="proj-mini-desc">EV company asset management platform.</div>
+              </div>
+              <div class="proj-mini">
+                <div class="proj-mini-name">🔨 Promistri</div>
+                <div class="proj-mini-desc">Craftsmen marketplace with coin system.</div>
+              </div>
+              <div class="proj-mini">
+                <div class="proj-mini-name">🎵 Lokdayro</div>
+                <div class="proj-mini-desc">Cultural event listing app for Gujarat.</div>
+              </div>
+              <div class="proj-mini">
+                <div class="proj-mini-name">🎨 Polymagic</div>
+                <div class="proj-mini-desc">Product catalog with rewards system.</div>
+              </div>
+              <div class="proj-mini">
+                <div class="proj-mini-name">🏫 eDisha</div>
+                <div class="proj-mini-desc">Govt. school attendance management.</div>
+              </div>
+              <div class="proj-mini">
+                <div class="proj-mini-name">🏢 HRK Group</div>
+                <div class="proj-mini-desc">Corporate web operations app.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- LIVE APPS -->
+    <div class="store-card" id="apps">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="card-title-icon icon-apps">📱</div>Live Applications (5)
+        </div>
+        <a class="see-all" href="#apps">See all</a>
+      </div>
+
+      <!-- Rating widget -->
+      <div class="rating-widget">
+        <div class="big-rating">
+          <div class="big-num">4.6</div>
+          <div class="big-stars">
+            <span class="big-star">★</span><span class="big-star">★</span>
+            <span class="big-star">★</span><span class="big-star">★</span>
+            <span class="big-star" style="opacity:.5">★</span>
+          </div>
+          <div class="big-count">687K+ ratings</div>
+        </div>
+        <div class="rating-bars">
+          <div class="rating-bar-row"><span class="rbar-label">5</span>
+            <div class="rbar-track">
+              <div class="rbar-fill" style="width:65%"></div>
+            </div><span class="rbar-pct">65%</span>
+          </div>
+          <div class="rating-bar-row"><span class="rbar-label">4</span>
+            <div class="rbar-track">
+              <div class="rbar-fill" style="width:20%"></div>
+            </div><span class="rbar-pct">20%</span>
+          </div>
+          <div class="rating-bar-row"><span class="rbar-label">3</span>
+            <div class="rbar-track">
+              <div class="rbar-fill" style="width:8%"></div>
+            </div><span class="rbar-pct">8%</span>
+          </div>
+          <div class="rating-bar-row"><span class="rbar-label">2</span>
+            <div class="rbar-track">
+              <div class="rbar-fill" style="width:4%"></div>
+            </div><span class="rbar-pct">4%</span>
+          </div>
+          <div class="rating-bar-row"><span class="rbar-label">1</span>
+            <div class="rbar-track">
+              <div class="rbar-fill" style="width:3%"></div>
+            </div><span class="rbar-pct">3%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="apps-list">
+
+        <!-- FLYER MAKER -->
+        <div class="app-listing">
+          <div class="app-listing-top">
+            <img referrerpolicy="no-referrer"
+              onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIyIiBmaWxsPSIjNDNBMDQ3Ii8+PHRleHQgeD0iNTAiIHk9IjY1IiBmb250LWZhbWlseT0iQXJpYWwgQmxhY2siIGZvbnQtc2l6ZT0iMzAiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5GVzwvdGV4dD48L3N2Zz4='"
+              class="app-listing-icon"
+              src="https://play-lh.googleusercontent.com/Nz3W91-hu99yx29WaQ-2s_P2upa5ZHRl9bKjdmV3MHVgrXNWXyldVCj5fDPt2SDx63M=w240-h480"
+              referrerpolicy="no-referrer" crossorigin="anonymous" alt="">
+            <div>
+              <div class="app-listing-name">Flyer Maker, Poster Maker</div>
+              <div class="app-listing-dev">Apps You Love · Design</div>
+              <div class="app-listing-meta">
+                <div class="app-rating">
+                  <div class="stars"><span class="star full">★</span><span class="star full">★</span><span
+                      class="star full">★</span><span class="star full">★</span><span class="star half">★</span></div>
+                  4.6 (374K)
+                </div>
+                <span class="app-listing-badge rated">10M+ Downloads</span>
+                <span class="app-listing-badge">3+</span>
+              </div>
+            </div>
+            <div class="app-action">
+              <a class="app-install-btn" href="https://play.google.com/store/apps/details?id=com.bg.flyermaker"
+                target="_blank">Open ↗</a>
+              <span class="app-size">Play Store</span>
+            </div>
+          </div>
+          <div class="app-screenshots-row">
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/AENWvm67KDeqlCXDNZPkcVNqsBccKxeDvK7hrrV-hQUkH01QFX07qBynCwPd93vACB0=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/C5bohdIVWxm6HRj-7FOoyeSK6dkj29MpPZ79Opu1VVYysEV_IV-tLO9To9ZU1tjgW76i=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/ShZ0WLF5GllhlnOQnbBJ84HdP8wXvjeW2-tKJEPOfcxfSmOjC7gusD8PXRORlWWqoBE=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/3GovyyrLKvZ5m4GDQbV99O0dc9KNRuym2-6LqtaE_o0cgmASGyLSRktOpv8_LUO4YEY=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/J15cY0NoQkpcTi-Ivg33qeyk0CljkEq2nalOKquDcVeQL2BaE-n2hu1Fhc-aOzwVeiQ=w526-h296"
+                loading="lazy" alt=""></div>
+          </div>
+          <div class="app-listing-footer">
+            <p class="app-desc-short">30,000+ templates with AI generation tools. Backend handles IAP, subscriptions &
+              delivery at scale.</p>
+            <div class="app-tech-row"><span class="tech-badge">Laravel</span><span class="tech-badge">IAP
+                Validation</span><span class="tech-badge">Subscriptions</span></div>
+          </div>
+        </div>
+
+        <!-- POSTER MAKER -->
+        <div class="app-listing">
+          <div class="app-listing-top">
+            <img referrerpolicy="no-referrer"
+              onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIyIiBmaWxsPSIjMUU4OEU1Ii8+PHRleHQgeD0iNTAiIHk9IjY1IiBmb250LWZhbWlseT0iQXJpYWwgQmxhY2siIGZvbnQtc2l6ZT0iMzAiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5QTTwvdGV4dD48L3N2Zz4='"
+              class="app-listing-icon"
+              src="https://play-lh.googleusercontent.com/Hde-O6MKVtcwDchj2yM_kq637LFxYVAN7taWUF5CB_irI1wIKYmVi2QQUcpOL_JIog=w240-h480"
+              referrerpolicy="no-referrer" crossorigin="anonymous" alt="">
+            <div>
+              <div class="app-listing-name">Poster Maker, Flyer Maker</div>
+              <div class="app-listing-dev">Photo Studio & Picture Editor Lab · Design</div>
+              <div class="app-listing-meta">
+                <div class="app-rating">
+                  <div class="stars"><span class="star full">★</span><span class="star full">★</span><span
+                      class="star full">★</span><span class="star full">★</span><span class="star half">★</span></div>
+                  4.6 (163K)
+                </div>
+                <span class="app-listing-badge rated">5M+ Downloads</span>
+                <span class="app-listing-badge">3+</span>
+              </div>
+            </div>
+            <div class="app-action">
+              <a class="app-install-btn" href="https://play.google.com/store/apps/details?id=com.nra.flyermaker"
+                target="_blank">Open ↗</a>
+              <span class="app-size">Play Store</span>
+            </div>
+          </div>
+          <div class="app-screenshots-row">
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/53xJPoJEbMZ4jWjffxNpWy-xN8QxeIfMySVQhh5hYHpOAj-0UYtQeSCvXiC0VVy8wA=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/XVof_MDcR_Kk3XEWHC3ERjaiJVcMTqZM1nl8wZz2dwvl60JjL0j-iuUSD60VQmJj2AI=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/KMPs3SU9ZTb9xxQFFcQnfLGaHkYFx-gnEE_75jtkBSv_G1gxbJHnICBDQ_wgsjCOgw=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/mMjpTfL1EmjyLywf-10I2aqC1cJsdOggfO3Ulm8c7kx7F4it-ItLA_7GjWyg6T3a2ss=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/348L9s2DgYa6npi2oQ7B1h9NFbG3UodCqo5eJ9GegP5myQlfyCgXXUJc-mfVhfyigQh0=w526-h296"
+                loading="lazy" alt=""></div>
+          </div>
+          <div class="app-listing-footer">
+            <p class="app-desc-short">Drag-and-drop poster creator with AI design suggestions and rich template library
+              for every occasion.</p>
+            <div class="app-tech-row"><span class="tech-badge">Laravel</span><span class="tech-badge">AI
+                Integration</span><span class="tech-badge">REST API</span></div>
+          </div>
+        </div>
+
+        <!-- LISI -->
+        <div class="app-listing">
+          <div class="app-listing-top">
+            <img referrerpolicy="no-referrer"
+              onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIyIiBmaWxsPSIjRkI4QzAwIi8+PHRleHQgeD0iNTAiIHk9IjY1IiBmb250LWZhbWlseT0iQXJpYWwgQmxhY2siIGZvbnQtc2l6ZT0iMzAiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5MSTwvdGV4dD48L3N2Zz4='"
+              class="app-listing-icon"
+              src="https://play-lh.googleusercontent.com/wPHEy-hwjeP94zdZ_9-XKd15IpEh6DgCrEhhgKnMXxrHqbi7omjGWbyM45VWo3BInMk=w240-h480"
+              referrerpolicy="no-referrer" crossorigin="anonymous" alt="">
+            <div>
+              <div class="app-listing-name">Lisi — Menu Maker, Templates</div>
+              <div class="app-listing-dev">Optimumbrew Technology · Business</div>
+              <div class="app-listing-meta">
+                <div class="app-rating">
+                  <div class="stars"><span class="star full">★</span><span class="star full">★</span><span
+                      class="star full">★</span><span class="star full">★</span><span class="star empty">★</span></div>
+                  4.4
+                </div>
+                <span class="app-listing-badge rated">500K+ Downloads</span>
+                <span class="app-listing-badge">3+</span>
+              </div>
+            </div>
+            <div class="app-action">
+              <a class="app-install-btn" href="https://play.google.com/store/apps/details?id=com.menu.maker"
+                target="_blank">Open ↗</a>
+              <span class="app-size">Play Store</span>
+            </div>
+          </div>
+          <div class="app-screenshots-row">
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/CThM_OgJZ58xeTa63aUBKbLqIzcYijgvePOSdlURjtSuP2qo0WoiTmtOIuApDU2quaE=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/RIqLuKcBB47K4VvDvX2oyjXSityZo1KfCMyQNZPkMsGy3v6l9F-yCzNy1-Y4U7OsYvM=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/4T936Xo2T6pH_Koxqb1qINrjwshkaOs2ZkQ55dGdNd-079_b_427VvRg12ROtBD7-483=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/JwYPZW1biXNCieTg4qaRrHwD425P87bqkdUSISjcwEzcfVMuU_4-GnRf4vxb6z1yDnQ=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/DsoGUmIWes-lrVLoJl1xB3bLD_cKuxUjxLgEkvyBWUzNFpIIyONOJpMG_rhSKKi29A=w526-h296"
+                loading="lazy" alt=""></div>
+          </div>
+          <div class="app-listing-footer">
+            <p class="app-desc-short">Restaurant menu & catalog creator with subscription-based premium features and
+              real-time sync.</p>
+            <div class="app-tech-row"><span class="tech-badge">Laravel</span><span
+                class="tech-badge">Subscriptions</span><span class="tech-badge">Node.js</span></div>
+          </div>
+        </div>
+
+        <!-- PLANWIZ -->
+        <div class="app-listing">
+          <div class="app-listing-top">
+            <img referrerpolicy="no-referrer"
+              onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIyIiBmaWxsPSIjOEUyNEFBIi8+PHRleHQgeD0iNTAiIHk9IjY1IiBmb250LWZhbWlseT0iQXJpYWwgQmxhY2siIGZvbnQtc2l6ZT0iMzAiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5QVzwvdGV4dD48L3N2Zz4='"
+              class="app-listing-icon"
+              src="https://play-lh.googleusercontent.com/ZryQpkY9HVgaMr2Q2GrFPZcZrMhP63gmdu9BGzE_XrZBcSvvpuzQgsWAzt-57j-dIKDd=w240-h480"
+              referrerpolicy="no-referrer" crossorigin="anonymous" alt="">
+            <div>
+              <div class="app-listing-name">Daily Planner, To Do List</div>
+              <div class="app-listing-dev">Simple Productivity Apps · Productivity</div>
+              <div class="app-listing-meta">
+                <div class="app-rating">
+                  <div class="stars"><span class="star full">★</span><span class="star full">★</span><span
+                      class="star full">★</span><span class="star full">★</span><span class="star full">★</span></div>
+                  4.7 (129K)
+                </div>
+                <span class="app-listing-badge rated">1M+ Downloads</span>
+                <span class="app-listing-badge">3+</span>
+              </div>
+            </div>
+            <div class="app-action">
+              <a class="app-install-btn" href="https://play.google.com/store/apps/details?id=com.planner.journal"
+                target="_blank">Open ↗</a>
+              <span class="app-size">Play Store</span>
+            </div>
+          </div>
+          <div class="app-screenshots-row">
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/v5MlMIIXpOfLA5nXV0RsbSWxJa_h-gCljXtn6UrgX_nNeQebnHAxmdveXhjgHDqlQNPf=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/Q4kfviz7KnRoPPIMMnIekGDpVSkp-e8l2mMf7ChGmm3HjbJLogwS-FO6Ftlb9e6VH7Y=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/NsN2Bc0MV34qOfEsoZEBkV7jaeI-5VgVvGkz1qEmb5DfkICE6Yi0yQHHHXpEiHTG_CmC=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/GPItYnnTNrMlv2hV0JCAFCKQ5mXwzXcuVjtAFXEuiaw_QUCP0A60qRMYZR1ZG1Emz9U=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/4UCETNfZlyTAxUHCsjEMGH-awqQUqelUSKcTGCxU0Crpjw2EMJjlx47wB_1c7FwskA=w526-h296"
+                loading="lazy" alt=""></div>
+          </div>
+          <div class="app-listing-footer">
+            <p class="app-desc-short">AI-powered daily planner & journal with mood tracker, routine builder, and
+              productivity analytics.</p>
+            <div class="app-tech-row"><span class="tech-badge">Laravel</span><span class="tech-badge">OpenAI</span><span
+                class="tech-badge">Subscriptions</span></div>
+          </div>
+        </div>
+
+        <!-- BROCHURE MAKER -->
+        <div class="app-listing">
+          <div class="app-listing-top">
+            <img referrerpolicy="no-referrer"
+              onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIyIiBmaWxsPSIjRTUzOTM1Ii8+PHRleHQgeD0iNTAiIHk9IjY1IiBmb250LWZhbWlseT0iQXJpYWwgQmxhY2siIGZvbnQtc2l6ZT0iMzAiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5CTTwvdGV4dD48L3N2Zz4='"
+              class="app-listing-icon"
+              src="https://play-lh.googleusercontent.com/gor5SutTYkm9uIJWshiK4q5__TAzJUqyirjHNQ9v7Xff5DjOrZslFmOfsnm7TeYBzKM=w240-h480"
+              referrerpolicy="no-referrer" crossorigin="anonymous" alt="">
+            <div>
+              <div class="app-listing-name">Brochure Maker, Pamphlet Maker</div>
+              <div class="app-listing-dev">Apps You Love · Business</div>
+              <div class="app-listing-meta">
+                <div class="app-rating">
+                  <div class="stars"><span class="star full">★</span><span class="star full">★</span><span
+                      class="star full">★</span><span class="star full">★</span><span class="star half">★</span></div>
+                  4.5 (20.8K)
+                </div>
+                <span class="app-listing-badge rated">1M+ Downloads</span>
+                <span class="app-listing-badge">3+</span>
+              </div>
+            </div>
+            <div class="app-action">
+              <a class="app-install-btn" href="https://play.google.com/store/apps/details?id=com.bg.brochuremaker"
+                target="_blank">Open ↗</a>
+              <span class="app-size">Play Store</span>
+            </div>
+          </div>
+          <div class="app-screenshots-row">
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/3hRjgdmKqPFrcVDOZz_h8vHDeSpbQ8nMhoBhn4oa3DpUkcVR9Bt-VLjsXmlns4oFhKD0=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/WhtlOohBNPV1ltWERkVo_92GeI4D8wlxDxFEEyodaMcgkGnz1z2NVPgwdtKiIZ6ljyMi=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/Kuwaxe5JxtCZF3qvhaZTRr_o9Cf3CkRVxGESqvZ5fR5nF3zYBMHsS2Qro1ge0PQLVCzL=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/NgBC8FB7eT9H_h2WBBYtdoHA3a1foNsioleepo7Dl4JGRp_u_K5G0ud7coxuyit9_oDc=w526-h296"
+                loading="lazy" alt=""></div>
+            <div class="ss-frame"><img referrerpolicy="no-referrer"
+                onerror="this.onerror=null;this.src=\'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjQwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZThlYWVkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGFkY2UwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSI2NDAiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSI0MCIgeT0iMjgwIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI2JkYzFjNiIvPjx0ZXh0IHg9IjE2MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM4MDg2OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmVlbnNob3Q8L3RleHQ+PC9zdmc+\'"
+                src="https://play-lh.googleusercontent.com/zzRfWk-D0IZ1TP8Ma29l8dZOdEg9epJeJI5qc1PG_LNS_DjjRi_PA017B3ccJaqtSQ=w526-h296"
+                loading="lazy" alt=""></div>
+          </div>
+          <div class="app-listing-footer">
+            <p class="app-desc-short">Professional brochures, leaflets & business docs with AI-generated content and
+              rich template library.</p>
+            <div class="app-tech-row"><span class="tech-badge">Laravel</span><span class="tech-badge">GPU
+                Pipeline</span><span class="tech-badge">IAP</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="store-card reveal" id="skills">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="card-title-icon icon-skills">🛠</div>Technical Skills
+        </div>
+      </div>
+      <div class="skills-section">
+        <div class="skill-category">
+          <div class="skill-cat-label">Backend Development</div>
+          <div class="skill-pills-wrap">
+            <span class="skill-pill featured">Laravel</span>
+            <span class="skill-pill featured">Node.js</span>
+            <span class="skill-pill featured">PHP</span>
+            <span class="skill-pill">REST API Design</span>
+            <span class="skill-pill">API Architecture</span>
+            <span class="skill-pill">Microservices</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-label">AI & Semantic Search</div>
+          <div class="skill-pills-wrap">
+            <span class="skill-pill blue">OpenAI API</span>
+            <span class="skill-pill blue">Gemini API</span>
+            <span class="skill-pill blue">Pinecone</span>
+            <span class="skill-pill">Embeddings</span>
+            <span class="skill-pill">Semantic Search</span>
+            <span class="skill-pill">Vector DB</span>
+            <span class="skill-pill">RRF Ranking</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-label">GPU & Processing</div>
+          <div class="skill-pills-wrap">
+            <span class="skill-pill orange">Python</span>
+            <span class="skill-pill orange">CUDA</span>
+            <span class="skill-pill">GPU Pipelines</span>
+            <span class="skill-pill">Async Workers</span>
+            <span class="skill-pill">Video Generation</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-label">Frontend & Database</div>
+          <div class="skill-pills-wrap">
+            <span class="skill-pill featured">MySQL</span>
+            <span class="skill-pill">React.js</span>
+            <span class="skill-pill">JavaScript</span>
+            <span class="skill-pill">Query Optimisation</span>
+            <span class="skill-pill">Git</span>
+            <span class="skill-pill">Production Monitoring</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-cat-label">Platform & In-App Purchases</div>
+          <div class="skill-pills-wrap">
+            <span class="skill-pill">Subscriptions</span>
+            <span class="skill-pill">In-App Purchases</span>
+            <span class="skill-pill">IAP Server Validation</span>
+            <span class="skill-pill">Play Store APIs</span>
+            <span class="skill-pill">Server Security</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact-card reveal">
+      <div class="contact-badge">✅ Available for new opportunities</div>
+      <div class="contact-title">Ready to work together?</div>
+      <p class="contact-sub">Open to backend engineering roles, freelance projects, and technical collaborations. Let's
+        build something great.</p>
+      <div class="contact-btns">
+        <a href="mailto:parthm.works@gmail.com" class="btn-white">
+          📧 parthm.works@gmail.com
+        </a>
+        <a href="tel:+919426874801" class="btn-white-outline">📞 +91 9426874801</a>
+      </div>
+    </div>
+
+  </div><!-- /main -->
+
+  <!-- FOOTER -->
+  <footer>
+    <a class="footer-logo" href="#">
+      <div class="footer-logo-icon">P</div>
+      <span class="footer-logo-text">PartHub Store</span>
+    </a>
+    <span class="footer-copy">© 2024 Parth Mithapara · Backend Engineer · Surat, India</span>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#experience">Work</a>
+      <a href="#apps">Apps</a>
+      <a href="#skills">Skills</a>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+    }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal, .app-listing').forEach(el => obs.observe(el));
+    document.querySelectorAll('.app-listing').forEach((el, i) => el.style.transitionDelay = (i * 0.06) + 's');
+
+    // Active tab on scroll
+    const sections = ['about', 'experience', 'apps', 'skills'];
+    const allTabs = document.querySelectorAll('.cat-tab, .topbar-nav a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 130) current = id;
+      });
+      allTabs.forEach(t => {
+        t.classList.toggle('active', t.getAttribute('href') === '#' + current);
+      });
+    });
+  </script>
+</body>
+
+</html>
